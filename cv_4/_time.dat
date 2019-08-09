@@ -1,0 +1,47 @@
+l1: -8/-2, ltsv: -8/-2. elapsed time: 72.125228
+total cost:0.003840, chi:0.003827, l1:0.000012, ltsv:0.000001 
+
+l1: -8/-2, ltsv: -6/-2. elapsed time: 72.303350
+total cost:0.003941, chi:0.003825, l1:0.000012, ltsv:0.000104 
+
+l1: -8/-2, ltsv: -4/-2. elapsed time: 70.751508
+total cost:0.014160, chi:0.003780, l1:0.000012, ltsv:0.010368 
+
+l1: -8/-2, ltsv: -2/-2. elapsed time: 90.896965
+total cost:0.936543, chi:0.021163, l1:0.000012, ltsv:0.915368 
+
+l1: -6/-2, ltsv: -8/-2. elapsed time: 68.477128
+total cost:0.005051, chi:0.003827, l1:0.001223, ltsv:0.000001 
+
+l1: -6/-2, ltsv: -6/-2. elapsed time: 68.551280
+total cost:0.005152, chi:0.003825, l1:0.001223, ltsv:0.000104 
+
+l1: -6/-2, ltsv: -4/-2. elapsed time: 68.505686
+total cost:0.015371, chi:0.003781, l1:0.001223, ltsv:0.010368 
+
+l1: -6/-2, ltsv: -2/-2. elapsed time: 90.628151
+total cost:0.937755, chi:0.021162, l1:0.001223, ltsv:0.915370 
+
+l1: -4/-2, ltsv: -8/-2. elapsed time: 68.489863
+total cost:0.126083, chi:0.003826, l1:0.122256, ltsv:0.000001 
+
+l1: -4/-2, ltsv: -6/-2. elapsed time: 73.633405
+total cost:0.126183, chi:0.003823, l1:0.122256, ltsv:0.000104 
+
+l1: -4/-2, ltsv: -4/-2. elapsed time: 73.935248
+total cost:0.136404, chi:0.003779, l1:0.122256, ltsv:0.010368 
+
+l1: -4/-2, ltsv: -2/-2. elapsed time: 73.523428
+total cost:1.061134, chi:0.023552, l1:0.122256, ltsv:0.915327 
+
+l1: -2/-2, ltsv: -8/-2. elapsed time: 62.211815
+total cost:12.231060, chi:0.005446, l1:12.225613, ltsv:0.000001 
+
+l1: -2/-2, ltsv: -6/-2. elapsed time: 61.547429
+total cost:12.231168, chi:0.005451, l1:12.225613, ltsv:0.000104 
+
+l1: -2/-2, ltsv: -4/-2. elapsed time: 63.586548
+total cost:12.241380, chi:0.005396, l1:12.225610, ltsv:0.010374 
+
+l1: -2/-2, ltsv: -2/-2. elapsed time: 72.474036
+total cost:13.164497, chi:0.023393, l1:12.225569, ltsv:0.915535 
