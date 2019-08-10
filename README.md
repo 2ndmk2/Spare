@@ -1,2 +1,2 @@
 # Spare
-Sparse Mapping of Reflection of Planetary Light
+Mapping with Sparse Modeling
