@@ -1,2 +1,2 @@
 # Spare
-Sparse Imaging for Reflection from Planet
+Sparse Mapping of Reflection of Planetary Light
