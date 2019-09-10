@@ -6,8 +6,9 @@ import logging
 def log_make(name, log_folder, log_level):
 
 
+	global logger
 
-
+	
 	dt_now = datetime.datetime.now()
 	log_time= str(dt_now.year) + str(dt_now.month).zfill(2) + str(dt_now.day).zfill(2) 
 	log_time2 =  str(dt_now.hour).zfill(2) + str(dt_now.minute).zfill(2) + str(dt_now.second).zfill(2)
