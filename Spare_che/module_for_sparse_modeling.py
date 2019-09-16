@@ -7,7 +7,7 @@ import time
 import collections
 import math
 from PIL import Image
-
+import time
 ## Calculation of lineary matrix to convert y to Ay
 ## A depends on x (e.g. position of center of the beam or obliqutiy of planet or..)
 def func_x(x, y):
@@ -120,6 +120,7 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
         
         ## Loop to estimate Lifshitz constant (L)
         ## L is the upper limit of df_dx_now
+        st=time.time()
         for iter_now2 in range(max_iter2):
             
             y_now = soft_threshold_nonneg(y - (1/L) * df_dx_now, lambda_l1/L)
@@ -131,6 +132,8 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
                 break
             L = L*eta
 
+        ent=time.time()
+        print(ent-st,"L")
         L = L/eta
         mu_new = (1+np.sqrt(1+4*mu*mu))/2
         F_now += lambda_l1 * np.sum(y_now)
@@ -158,6 +161,10 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
             break
 
         mu = mu_new
+        enen=time.time()
+        print(enen-ent,"R")
+
+        
     return y
 
 

@@ -76,18 +76,12 @@ def calc_Q_part(data, A,  x_d2, x_d, df_dx, L, lambda_tsv):
     return Q_core
 
 ## Calculation of soft_thresholding (prox)
+#   nx, ny = np.shape(x_d)
 def soft_threshold_nonneg(x_d, eta):
-    nx, ny = np.shape(x_d)
     vec = np.zeros(np.shape(x_d))
-    for i in range(nx):
-        for j in range(ny):
-            if x_d[i][j] > eta:
-                vec[i][j] = x_d[i][j] - eta
-            else:
-                vec[i][j] = 0
+    mask=x_d>eta
+    vec[mask]=x_d[mask] - eta
     return vec
-
-
 
 ### For consistnecy with sparse modleing (Shiro Ikeda)
 ## box_flag=0 &&& cl_flag = 1
@@ -112,7 +106,11 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
 
     ## Main Loop until iter_now < maxiter
     ## PL_(y) & y are updated in each iteration
+    p1=0.
+    p2=0.
+    p3=0.
     for iter_now in range(maxiter):
+        s1=time.time()
         cost_arr.append(cost_temp)
         
         ##df_dx(y)
@@ -120,6 +118,8 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
         
         ## Loop to estimate Lifshitz constant (L)
         ## L is the upper limit of df_dx_now
+        s2=time.time()
+
         for iter_now2 in range(max_iter2):
             
             y_now = soft_threshold_nonneg(y - (1/L) * df_dx_now, lambda_l1/L)
@@ -132,12 +132,14 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
             L = L*eta
 
         L = L/eta
+        s3=time.time()
+
         mu_new = (1+np.sqrt(1+4*mu*mu))/2
         F_now += lambda_l1 * np.sum(y_now)
         if print_func:
             if iter_now % 50 == 0:
                 print ("Current iteration: %d/%d,  L: %f, cost: %f, cost_chiquare:%f" % (iter_now, maxiter, L, cost_temp, F_obs(d, A_ten, y_now)))
-        
+
         ## Updating y & x_k
         if F_now < cost_prev:
             cost_temp = F_now
@@ -158,6 +160,11 @@ def mfista_func(I_init, d, A_ten, lambda_l1= 1e2, lambda_tsv= 1e-8, L_init= 1e4,
             break
 
         mu = mu_new
+        s4=time.time()
+        p1+=s2-s1
+        p2+=s3-s2
+        p3+=s4-s3
+    print(p1,p2,p3,"SEC in total")
     return y
 
 
