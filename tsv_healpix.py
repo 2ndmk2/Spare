@@ -103,14 +103,9 @@ def calc_Q_part_healpix(data, W,  x_d2, x_d, df_dx, L, lambda_tsv, weight, sigma
 ## Calculation of soft_thresholding (prox)
 
 def soft_threshold_nonneg_healpix(x_d, eta,  crit=0.1, crit_flag = False):
-    vec = np.zeros(len(x_d))
-    for i in range(len(x_d)):
-        if x_d[i] > 1:
-            vec[i] = 1;
-        elif x_d[i] > eta:
-            vec[i] = x_d[i] - eta
-        else:
-            vec[i] = 0
+    vec = np.zeros(np.shape(x_d))
+    mask=x_d>eta
+    vec[mask]=x_d[mask] - eta
     return vec
 
 def soft_threshold_healpix(x_d, eta, crit=0.1, crit_flag = False):
