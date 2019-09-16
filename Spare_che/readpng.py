@@ -11,6 +11,13 @@ def get_bwimg(file):
     bwimg=np.sum(bwimg,axis=2)/3.0    
     return bwimg
 
+
+def get_img(file):
+    img=mpimg.imread(file)
+    #bwimg=np.sum(bwimg,axis=2)/3.0    
+    return img[:,:,0:3]
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('-f', nargs=1, required=True, help='png file')
