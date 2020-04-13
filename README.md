@@ -5,8 +5,7 @@ Mapping with Sparse Modeling
 libraries for Spare  
 
 ## Figure1
-Test suite  
-Includes files for making Figure 1
+Test suite for making Figure 1  
 
 ## Data_mock
 Data for making mock map  
