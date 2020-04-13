@@ -2,11 +2,11 @@
 Mapping with Sparse Modeling
 
 ## Spare_module
-libraries for Spare
+libraries for Spare  
 
 ## Figure1
-Test suite. 
+Test suite.  
 Includes files for making Figure 1. 
 
 ## Data_mock
-Data for making mock map
+Data for making mock map  
